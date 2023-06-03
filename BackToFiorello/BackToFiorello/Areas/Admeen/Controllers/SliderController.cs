@@ -3,21 +3,16 @@ using BackToFiorello.Models;
 using Microsoft.AspNetCore.Mvc;
 using BackToFiorello.Data;
 using Microsoft.EntityFrameworkCore;
-using BackToFiorello.Helpers;
 
 namespace BackToFiorello.Areas.Admeen.Controllers 
 {
     [Area("Admeen")]
     public class SliderController : Controller {
         private readonly AppDbContext _context;
-        private readonly IWebHostEnvironment _env;
 
-
-        public SliderController(AppDbContext context, IWebHostEnvironment env)
+        public SliderController(AppDbContext context)
         {
             _context = context;
-            _env = env;
-
         }
 
         [HttpGet]
@@ -63,47 +58,5 @@ namespace BackToFiorello.Areas.Admeen.Controllers
 
         }
 
-        [HttpGet]
-        public IActionResult Create() {
-
-            return View();  
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(SliderCreateVM request)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View();
-            }
-
-            if (!request.Image.CheckFileType("image/"))
-            {
-                ModelState.AddModelError("Image", "This file must be in image format");
-                return View();
-            }
-
-            if (request.Image.CheckFileSize(200))
-            {
-                ModelState.AddModelError("Image", "Image size cannot be more than 200 KB");
-                return View();
-            }
-
-            string fileName = Guid.NewGuid().ToString() + "_" + request.Image.FileName;
-
-            await request.Image.SaveFileAsync(fileName, _env.WebRootPath, "img");
-
-            Slider slider = new()
-            {
-                Image = fileName
-            };
-
-            await _context.Sliders.AddAsync(slider);
-
-            await _context.SaveChangesAsync();
-
-            return RedirectToAction(nameof(Index));
-        }
     }
 }

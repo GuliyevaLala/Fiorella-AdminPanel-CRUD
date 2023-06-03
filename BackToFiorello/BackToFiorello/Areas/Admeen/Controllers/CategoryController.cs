@@ -113,37 +113,18 @@ namespace BackToFiorello.Areas.Admeen.Controllers {
         }
 
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Delete(int Id)
-        //{
-        //    var existcCategory = await _context.Categories.FirstOrDefaultAsync(m => m.Id == Id);
-        //    _context.Remove(existcCategory);
-
-
-        //    await _context.SaveChangesAsync();
-
-        //    return RedirectToAction(nameof(Index));
-        //}
-
-
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [ActionName("Delete")]
-        public async Task<IActionResult> SoftDelete(int Id)
+        public async Task<IActionResult> Delete(int Id)
         {
             var existcCategory = await _context.Categories.FirstOrDefaultAsync(m => m.Id == Id);
-            existcCategory.SoftDelete = true;
-            
+            _context.Remove(existcCategory);
+
+
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
         }
-
-
-
-
 
     }
 }
