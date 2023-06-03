@@ -1,0 +1,87 @@
+﻿@model List<SliderVM>
+
+
+<style>
+    .status-slider {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .status-true {
+        background-color: lawngreen;
+/*        border: 2px solid rebeccapurple;
+*/    }
+
+    .status-false {
+        background-color: firebrick;
+/*        border: 2px solid deepskyblue;
+*/    }
+</style>
+@{ ViewData["Title"] = "Index"; }
+<div class="content-wrapper">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-12 col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        Recent Slider Tables 
+                        <br />
+                        <br />
+                        <div class="create-btn ">
+                            <a href="#" class="btn btn-light btn-rounded btn-fw">Create</a>
+                        </div>
+                        <div class="card-action">
+                            <div class="dropdown">
+                                <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+                                    <i class="icon-options"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="javascript:void();">Action</a>
+                                    <a class="dropdown-item" href="javascript:void();">Another action</a>
+                                    <a class="dropdown-item" href="javascript:void();">Something else here</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="javascript:void();">Separated link</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table justify-content-center align-items-center table-flush table-borderless">
+                            <thead>
+                                <tr>
+                                    <th>IMAGE</th>
+                                    <th>CREATE DATE</th>
+                                    <th>STATUS</th>
+                                    <th>OPTIONS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var slider in Model){
+                                    <tr>
+                                        <td><img src="~/assets/img/@slider.Image" style="width:95px;height:80px; class=" product-img" alt="product img"></td>
+                                        <td>@slider.CreateDate</td>
+                                        <td>
+                                            <div class="status-slider @(slider.Status ? "status-true":"status-false")"></div>
+                                        </td>
+                                        <td>
+                                            <a asp-action="Detail" asp-route-id="@slider.Id" class="btn btn-primary btn-rounded btn-fw">Detail</a>
+                                            <a href="#" class="btn btn-info btn-rounded btn-fw">Edit</a>
+                                            <a href="#" class="btn  btn-light btn-rounded btn-fw">Delete</a>
+                                        </td>
+
+                                    </tr>
+                                }
+                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End Row-->
+
+    </div>
+</div>
