@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Admin\Desktop\z\BackToFiorello\BackToFiorello
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Admin/Desktop/z/BackToFiorello/BackToFiorello/Areas/Admeen/Views/Archive/Categories.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtZWVuXFZpZXdzXEFyY2hpdmVcQ2F0ZWdvcmllcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Admin/Desktop/z/BackToFiorello/BackToFiorello/Areas/Admeen/Views/Category/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtZWVuXFZpZXdzXENhdGVnb3J5XENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -34,6 +38,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Admin/Desktop/z/BackToFiorello/BackToFiorello/Areas/Admeen/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtZWVuXFZpZXdzXFNoYXJlZFxfTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/Desktop/z/BackToFiorello/BackToFiorello/Areas/Admeen/Views/Slider/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtZWVuXFZpZXdzXFNsaWRlclxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Admin/Desktop/z/BackToFiorello/BackToFiorello/Areas/Admeen/Views/Slider/Detail.cshtml]
